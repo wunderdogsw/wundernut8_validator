@@ -12,9 +12,9 @@ use std::collections::HashMap;
 use libflate::gzip::{Decoder};
 
 fn main() {
-    let arg_matches = App::new("Wundernut validator")
+    let arg_matches = App::new("Optimized Alastalon Salissa validator")
         .version("1.0")
-        .about("Validates Wundernut #n answer")
+        .about("Validates Wundernut #8 answer")
         .arg(Arg::with_name("file")
             .required(true)
             .index(1))
