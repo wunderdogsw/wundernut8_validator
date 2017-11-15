@@ -1,0 +1,15 @@
+[package]
+name = "alastalo_validator"
+version = "0.1.0"
+authors = ["Joni Katajamäki <joni.katajamaki@wunderdog.fi>"]
+
+[dependencies]
+serde = "1.0.20"
+bincode = "0.9.2"
+clap = "2.27.1"
+libflate = "0.1.12"
+
+[build-dependencies]
+serde = "1.0.20"
+bincode = "0.9.2"
+libflate = "0.1.12"
