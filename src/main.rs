@@ -11,6 +11,7 @@ use std::fs::File;
 use std::collections::HashMap;
 use libflate::gzip::{Decoder};
 
+
 fn main() {
     let arg_matches = App::new("Optimized Alastalon Salissa validator")
         .version("1.0")
@@ -35,8 +36,14 @@ fn main() {
     std::process::exit(if failed { 1 } else { 0 });
 }
 
+#[cfg(any(unix, macos))]
 fn check(ok: bool) -> &'static str {
     if ok { "[✓]" } else { "[✗]" }
+}
+
+#[cfg(windows)]
+fn check(ok: bool) -> &'static str {
+    if ok { "[OK]" } else { "[FAIL]" }
 }
 
 fn run(filename: &str) -> io::Result<()> {
