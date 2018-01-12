@@ -13,15 +13,17 @@ use libflate::gzip::{Decoder};
 
 
 fn main() {
-    let arg_matches = App::new("Optimized Alastalon Salissa validator")
+    let app = App::new("Optimized Alastalon Salissa validator")
         .version("1.0")
         .about("Validates Wundernut #8 answer")
-        .arg(Arg::with_name("file")
+        .arg(Arg::with_name("answer_file")
             .required(true)
-            .index(1))
-        .get_matches();
+            .help("Optimized Alastalon Salissa book file")
+            .value_name("ANSWER FILE")
+            .index(1));
+    let arg_matches = app.get_matches();
 
-    let filename = arg_matches.value_of("file").unwrap();
+    let filename = arg_matches.value_of("answer_file").unwrap();
 
     let failed = match run(filename) {
         Err(err) => {
